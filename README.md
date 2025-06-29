@@ -7,7 +7,7 @@ que es C++ Moderno, y como es posible aplicarlo en programas de Arduino C, hoy, 
 ## Contenido
 ---
 ## Taller
-- Validación del ambiente de desarrollo
+- Validación del ambiente de desarrollo Arduino IDE.
   - Suporte de placa IdeaBoard basada en ESP32 (https://www.crcibernetica.com/crcibernetica-ideaboard/) en el Arduino IDE.
   - Configuración del Arduino IDE.
     - Seleccionar ESP32-WROOM-DA Module, y el puerto serial correspondiente.
