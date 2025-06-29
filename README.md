@@ -22,7 +22,7 @@ que es C++ Moderno, y como es posible aplicarlo en programas de Arduino C, hoy, 
   
   void setup() {
     Serial.begin(115200);
-    Serial.println("READY! OK");
+    Serial.println("READY!");
   
     int arr1[size];
   
