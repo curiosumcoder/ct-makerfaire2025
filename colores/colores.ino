@@ -11,6 +11,8 @@ constexpr int16_t PIXEL_PIN{2};
 Adafruit_NeoPixel neopixel(1, PIXEL_PIN, NEO_GRB + NEO_KHZ800);
 
 void setup() {
+  Serial.begin(115200);
+  Serial.println("READY!");
   
   // Initialize pixel to off
   neopixel.begin();
@@ -34,23 +36,30 @@ void setup() {
   colores.push_back(COLOR{0,255,0});
   colores.push_back(COLOR{0,0,255});
 
-  auto cantidad {random(1,20)};
+  auto cantidad {random(1,100)};
+  Serial.println("Cantidad: " + String(cantidad));
 
-  for (auto i{0}; i < cantidad; cantidad++)
+  uint8_t red{};
+  uint8_t green{};
+  uint8_t blue{};
+
+  for (auto i{0}; i < cantidad; i++)
   {
-      uint8_t red { random(0,255)};
-      uint8_t green { random(0,255)};
-      uint8_t blue { random(0,255)};
+      red = random(0,255);
+      green = random(0,255);
+      blue = random(0,255);
 
-      colores.push_back(COLOR{red,0,0});
+      colores.push_back(COLOR{red,green,blue});
   }
 
   for (const auto& color : colores)
   {
+    Serial.println("R: " + String(color.RED) + ", G: " + String(color.GREEN) + ", B: "+ String(color.BLUE));
+
     neopixel.setPixelColor(0, color.RED, color.GREEN, color.BLUE);
     neopixel.show();
 
-    delay(500);
+    delay(100);
 
     // Turn off pixel
     neopixel.clear(); 
